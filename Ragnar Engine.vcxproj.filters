@@ -49,6 +49,9 @@
     <Filter Include="Sources\Resources\Importers">
       <UniqueIdentifier>{3c644c45-199c-460f-9c95-bb1da2fa630e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sources\GameObject\Particle system">
+      <UniqueIdentifier>{128a1283-db53-466b-a284-e80cc28aebb1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Source\Module.h">
@@ -259,8 +262,26 @@
       <Filter>Sources\Tools</Filter>
     </ClInclude>
     <ClInclude Include="resource.h" />
-    <ClInclude Include="Engine\Source\Particles.h">
+    <ClInclude Include="Engine\Source\ParticlesComponent.h">
+      <Filter>Sources\GameObject\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Source\EmitterInstance.h">
+      <Filter>Sources\GameObject\Particle system</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Source\ResourceParticles.h">
       <Filter>Sources\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Source\Particles.h">
+      <Filter>Sources\GameObject\Particle system</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Source\ParticleEmitter.h">
+      <Filter>Sources\GameObject\Particle system</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Source\ModuleParticles.h">
+      <Filter>Sources\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Source\BillboardComponent.h">
+      <Filter>Sources\GameObject\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -429,8 +450,26 @@
     <ClCompile Include="Engine\Source\Model.cpp">
       <Filter>Sources\Resources</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Source\Particles.cpp">
+    <ClCompile Include="Engine\Source\ParticlesComponent.cpp">
+      <Filter>Sources\GameObject\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Source\EmitterInstance.cpp">
+      <Filter>Sources\GameObject\Particle system</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Source\ResourceParticles.cpp">
       <Filter>Sources\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Source\Particles.cpp">
+      <Filter>Sources\GameObject\Particle system</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Source\ParticleEmitter.cpp">
+      <Filter>Sources\GameObject\Particle system</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Source\ModuleParticles.cpp">
+      <Filter>Sources\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Source\BillboardComponent.cpp">
+      <Filter>Sources\GameObject\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

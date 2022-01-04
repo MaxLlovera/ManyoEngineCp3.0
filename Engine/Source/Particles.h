@@ -1,21 +1,18 @@
 #pragma once
 
-#include "Resource.h"
-#include <vector>
-
-typedef unsigned int uint;
-
-//class Resource;
+#include "Component.h"
 
 
-class Particles : public Resource
-{
+
+class Particles {
 public:
-	Particles(uint uid, std::string& assets, std::string& library);
-	virtual ~Particles();
+	Particles();
+	~Particles();
 
 
-	void CleanUp() /*override*/;
-
-
+public:
+	float3 position;
+	Quat worldRotation;
+	float lifetime;
+	float4 velocity;
 };
