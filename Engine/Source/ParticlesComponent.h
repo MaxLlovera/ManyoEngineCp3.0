@@ -3,6 +3,7 @@
 #include "Component.h"
 #include <vector>
 #include "EmitterInstance.h"
+#include "ResourceParticles.h"
 
 class GameObject;
 
@@ -22,4 +23,8 @@ public:
 
 public:
 	std::vector<EmitterInstance> emitters;
+
+	ResourceParticles* resourceParticles;
+
+	float particletime;
 };

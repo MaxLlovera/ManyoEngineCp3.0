@@ -12,13 +12,18 @@ public:
 	EmitterInstance();
 	~EmitterInstance();
 
-	void Init();
+	void Init(ParticleEmitter* emit);
 	void UpdateModules();
 	void DrawParticles();
 
-public:
+	void NewParticle();
+	void GenerateParticle();
 
+public:
 	std::vector<Particles> particles;
 	ParticleEmitter* emitter;
 	ParticlesComponent* owner;
+	Particles* partic;
+
+	int particles_count;
 };

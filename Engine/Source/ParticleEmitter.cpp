@@ -3,6 +3,7 @@
 ParticleEmitter::ParticleEmitter()
 {
 	name = "Particles Emitter";
+	max_particles = 100;
 }
 
 ParticleEmitter::~ParticleEmitter()

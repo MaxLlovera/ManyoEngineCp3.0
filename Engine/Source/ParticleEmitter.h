@@ -19,5 +19,5 @@ public:
 	std::string name;
 	Texture* particlesTexture;
 	std::vector<ModuleParticles*> modules;
-
+	uint max_particles;
 };
