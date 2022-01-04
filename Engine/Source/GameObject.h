@@ -8,7 +8,8 @@
 #include "MeshComponent.h"
 #include "MaterialComponent.h"
 #include "CameraComponent.h"
-
+#include "ParticlesComponent.h"
+#include "BillboardComponent.h"
 #include "MathGeoLib/src/MathGeoLib.h"
 
 typedef unsigned int uint;

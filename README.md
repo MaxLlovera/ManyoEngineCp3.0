@@ -1,19 +1,18 @@
-# Ragnar Engine
+# ManyoEngineCp
 
-Ragnar Engine is a Video Game Engine created by [Lucas Pérez](https://github.com/LucasPG14). and [Oriol Bernal](https://github.com/UriKurae)., two students from the university Universitat Politècnica de Catalunya (CITM). 
+This is a Videogame Engine for the subject Motors de videojocs of CITM-UPC 
+done by Max Llovera (https://github.com/maxllovera), Arnau Ustrell (https://github.com/arnauustrell)
+and Maria Garrigolas (https://github.com/meeeri08)
+
+Link to github repoisitory: https://github.com/MaxLlovera/ManyoEngineCp3.0
+
+This project is forked from: https://github.com/UriKurae/RagnarEngine
 
 ## Planning
 
 The purpose of this project is to create a friendly-user, well optimized Game Engine for the subject "VideoGame Engines" from the 3rd year. The short term plan is to implement the basic features of a Game Engine, such as loading models, working in a 3D environment, etc...
 
 For the long term, we would love to create a game with this Video Game Engine
-
-## Installation
-
-The installation is pretty straight-forward and easy, just go into the [releases tab](https://github.com/UriKurae/Ragnar-Engine/releases), and download the latest version.
-The download files include an exe and you just have to execute it to test our engine.
-
-**Carefull**: You can edit the config file to modify some properties like the window and everything, but they come with an optimal configuration already.
 
 ## Features
 

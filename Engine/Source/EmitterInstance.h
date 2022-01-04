@@ -26,4 +26,5 @@ public:
 	Particles* partic;
 
 	int particles_count;
+	int particles_spawning;
 };

@@ -12,8 +12,8 @@ enum class BillboardType
 
 class BillboardComponent : public Component
 {
+public:
 	BillboardComponent(GameObject* own);
 	~BillboardComponent();
-
 
 };

@@ -226,11 +226,18 @@ Component* GameObject::CreateComponent(ComponentType type)
 		component = new CameraComponent(this, GetComponent<TransformComponent>());
 		app->scene->SetMainCamera((CameraComponent*)component);
 		break;
+	case ComponentType::PARTICLE:
+		component = new ParticlesComponent(this);
+		break;
+	case ComponentType::BILLBOARD:
+		component = new BillboardComponent(this);
+		break;
 	case ComponentType::MATERIAL:
 		component = new MaterialComponent(this);
 		MeshComponent* m = GetComponent<MeshComponent>();
 		if (m != nullptr) m->SetMaterial((MaterialComponent*)component);
 		break;
+
 	}
 
 	if (component != nullptr)
