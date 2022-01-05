@@ -16,4 +16,7 @@ public:
 	BillboardComponent(GameObject* own);
 	~BillboardComponent();
 
+
+
+
 };

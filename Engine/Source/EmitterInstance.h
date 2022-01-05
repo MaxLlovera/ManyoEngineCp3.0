@@ -24,7 +24,6 @@ public:
 	ParticleEmitter* emitter;
 	ParticlesComponent* owner;
 	Particles* partic;
-
 	int particles_count;
 	int particles_spawning;
 };
