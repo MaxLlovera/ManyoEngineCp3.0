@@ -15,6 +15,7 @@ public:
 
 	void Save();
 	void Load();
+	void OnEditor() override;
 
 	void Update();
 	void Reset();

@@ -124,6 +124,16 @@ void GameObject::DrawEditor()
 			CreateComponent(ComponentType::MATERIAL);
 			newComponent = false;
 		}
+		if (ImGui::Selectable("Camera"))
+		{
+			CreateComponent(ComponentType::CAMERA);
+			newComponent = false;
+		}
+		if (ImGui::Selectable("Particle System"))
+		{
+			CreateComponent(ComponentType::PARTICLE);
+			newComponent = false;
+		}
 		else if (!ImGui::IsAnyItemHovered() && ((ImGui::GetIO().MouseClicked[0] || ImGui::GetIO().MouseClicked[1])))
 		{
 			newComponent = false;
@@ -145,6 +155,16 @@ void GameObject::DrawEditor()
 			if (ImGui::Button("Material Component"))
 			{
 				CreateComponent(ComponentType::MATERIAL);
+				newComponent = false;
+			}
+			if (ImGui::Button("Camera"))
+			{
+				CreateComponent(ComponentType::CAMERA);
+				newComponent = false;
+			}
+			if (ImGui::Button("Particle System"))
+			{
+				CreateComponent(ComponentType::PARTICLE);
 				newComponent = false;
 			}
 			else if (!ImGui::IsAnyItemHovered() && ((ImGui::GetIO().MouseClicked[0] || ImGui::GetIO().MouseClicked[1])))

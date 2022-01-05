@@ -25,6 +25,16 @@ void ParticlesComponent::Load()
 
 }
 
+void ParticlesComponent::OnEditor()
+{
+	ImGui::PushID(this);
+	if (ImGui::CollapsingHeader("Particle System"))
+	{
+		ImGui::Text("Particle System");
+	}
+	ImGui::PopID();
+}
+
 void ParticlesComponent::Update()
 {
 	for (size_t i = 0; i < emitters.size(); i++)
