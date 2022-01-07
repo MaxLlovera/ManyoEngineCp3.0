@@ -27,6 +27,9 @@ bool ModuleScene::Start()
 {
 	RG_PROFILING_FUNCTION("Starting Scene");
 
+	//GameObject* parti = CreateGameObject(nullptr);
+	//parti->CreateComponent(ComponentType::PARTICLE);
+
 	GameObject* camera = CreateGameObject(nullptr);
 	camera->CreateComponent(ComponentType::CAMERA);
 	camera->SetName("Camera");
@@ -344,6 +347,12 @@ GameObject* ModuleScene::GetGoByUuid(double uuid) const
 
 	return nullptr;
 }
+
+CameraComponent* ModuleScene::getmainCamera()
+{
+	return mainCamera;
+}
+
 
 bool ModuleScene::SaveScene(const char* name)
 {

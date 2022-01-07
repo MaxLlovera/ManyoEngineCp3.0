@@ -46,6 +46,7 @@ public:
 	inline GameObject* GetRoot() const { return root; }
 	inline GameState GetGameState() const { return gameState; }
 	GameObject* GetGoByUuid(double uuid) const;
+	CameraComponent* getmainCamera();
 
 	void SetMainCamera(CameraComponent* camComponent) { mainCamera = camComponent; }
 	void Play();

@@ -2,6 +2,9 @@
 
 #include "Component.h"
 #include "MathGeoLib/src/Geometry/Frustum.h"
+#include "MathGeoLib/src/MathBuildConfig.h"
+#include "MathGeoLib/src/MathGeoLib.h"
+#include "ModuleCamera3D.h"
 
 class TransformComponent;
 class IndexBuffer;
@@ -23,15 +26,22 @@ public:
 	
 	void CompileBuffers();
 	bool CompareRotations(Quat& quat1, Quat& quat2);
+	float4x4 GetViewMatrixFrustumTransposed() const;
 
 	bool OnLoad(JsonParsing& node) override;
 	bool OnSave(JsonParsing& node, JSON_Array* array) override;
+
+	float3 CameraComponent::GetFrustumPos() const;
+
 
 	int CameraComponent::ContainsAaBox(const AABB& boundingBox);
 
 	float4x4 matrixViewFrustum;
 	float4x4 matrixProjectionFrustum;
-private:
+
+
+
+public:
 
 	Frustum camera;
 	TransformComponent* transform;

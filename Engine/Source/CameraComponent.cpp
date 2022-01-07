@@ -90,6 +90,11 @@ bool CameraComponent::Update(float dt)
 	return true;
 }
 
+float4x4 CameraComponent::GetViewMatrixFrustumTransposed() const
+{
+	return matrixViewFrustum.Transposed();
+}
+
 void CameraComponent::Draw()
 {
 	glPushMatrix();
@@ -208,6 +213,11 @@ bool CameraComponent::OnSave(JsonParsing& node, JSON_Array* array)
 	return true;
 }
 
+float3 CameraComponent::GetFrustumPos() const
+{
+	return currentPos;
+	//return camera.pos;
+}
 
 int CameraComponent::ContainsAaBox(const AABB& boundingBox)
 {

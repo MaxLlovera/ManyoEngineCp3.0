@@ -22,6 +22,7 @@ public:
 	void UpdateFovAndScreen(float width, float height);
 	void UpdateFov();
 	void SetPlanes();
+	
 
 	bool LoadConfig(JsonParsing& node) override;
 	bool SaveConfig(JsonParsing& node) const override;

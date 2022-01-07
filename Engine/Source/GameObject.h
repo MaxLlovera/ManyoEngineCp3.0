@@ -67,6 +67,9 @@ public:
 	template<typename T>
 	T* GetComponent();
 
+
+	ParticlesComponent* p;
+
 private:
 	std::string name;
 	bool active;

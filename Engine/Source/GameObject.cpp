@@ -48,6 +48,7 @@ bool GameObject::Update(float dt)
 	for (int i = 0; i < children.size(); ++i)
 		children[i]->Update(dt);
 
+
 	return true;
 }
 
@@ -248,6 +249,7 @@ Component* GameObject::CreateComponent(ComponentType type)
 		break;
 	case ComponentType::PARTICLE:
 		component = new ParticlesComponent(this);
+		p = (ParticlesComponent*)component;
 		break;
 	case ComponentType::BILLBOARD:
 		component = new BillboardComponent(this);
@@ -259,6 +261,7 @@ Component* GameObject::CreateComponent(ComponentType type)
 		break;
 
 	}
+
 
 	if (component != nullptr)
 	{
@@ -291,6 +294,7 @@ void GameObject::CopyComponent(Component* component)
 		MeshComponent* m = GetComponent<MeshComponent>();
 		if (m != nullptr) m->SetMaterial((MaterialComponent*)c);
 		break;
+
 	}
 
 	if (c != nullptr)

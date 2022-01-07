@@ -10,14 +10,13 @@ class GameObject;
 class ParticlesComponent : public Component
 {
 public:
-	ParticlesComponent(GameObject* own);
+	ParticlesComponent(GameObject* owner);
 	~ParticlesComponent();
-
+	
 	void Save();
 	void Load();
 	void OnEditor() override;
-
-	void Update();
+	bool Update(float dt) override;
 	void Reset();
 
 
@@ -27,5 +26,8 @@ public:
 
 	ResourceParticles* resourceParticles;
 
+	Particles* partic;
+
 	float particletime;
+	int maxParticles;
 };
