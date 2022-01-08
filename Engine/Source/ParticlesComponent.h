@@ -28,6 +28,5 @@ public:
 
 	Particles* partic;
 
-	float particletime;
 	int maxParticles;
 };

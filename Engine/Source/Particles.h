@@ -20,8 +20,8 @@ public:
 	float size;
 	float angle;
 	float weight;
-	float life;
-	unsigned char r, g, b, a;
+	Color color;
+	//unsigned char r, g, b, a;
 	BillboardComponent* billboardComponent;
 	float3 direction;
 

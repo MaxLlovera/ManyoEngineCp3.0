@@ -12,6 +12,7 @@ Particles::Particles(Particles* partic)
 	velocity = partic->velocity;
 	direction = partic->direction;
 	size = partic->size;
+	color = partic->color;
 }
 
 Particles::~Particles()
