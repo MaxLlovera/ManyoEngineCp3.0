@@ -8,19 +8,8 @@ Link to github repoisitory: https://github.com/MaxLlovera/ManyoEngineCp3.0
 
 This project is forked from: https://github.com/UriKurae/RagnarEngine
 
-## How to use it:
-
-- Camera Move: · W -> Move Forward · A -> Move Left · S -> Move Backward · D -> Move right · Mouse Wheel -> Zoom in / Zoom out · F -> Focus the camera to selected object · Alt+Left clik -> Orbit the object · Hold SHIFTH -> Duplicates movement speed
-
-- Drag and drop: Drag and drop models and textures to the engine to load it.
-
-- Select a game Object and delete it with Supr
-
-- Timer Play/Pause/Stop functionality
-
-- Selecting Game Objects open a component Inspector where you can edit and show some debuging options like Boundary Boxes of a mesh, Frustum culling and Fov for the Main Camera.
-
 ## Features
+v1.0
 
 v0.8
 
@@ -65,7 +54,7 @@ v0.5
 - Opengl options (Wireframe Mode, Texture2D, Vsync, Stencil, etc...).
 - Ability to close and reopen menus from the editor.
 
-## Controls
+## How to use the engine:
 
 - Right click + WASD: Move the camera in it's own axis.
 - Right click + Q/E: Move the camera up or down in it's own axis.
@@ -87,12 +76,6 @@ v0.5
 - Play/Stop/Pause and Advance frame: To start a game preview, hit the play button, when you hit the play button, the preview will start, and the play button will be swapped by
 the stop button. Hitting the stop button will stop the game preview.
 Pause button will pause the game preview until you hit it again. When having the game in pause, you can advance one frame if you want. Also, the buttons and the whole engine will have different UI colors to let the user know that he is in game preview mode.
-
-## User Interface
-
-The menus are also very straight-forward, you can navigate through them and have multiple options for the engine itself, there are many options, so it's highly encouraged to test everything to understand the interface, **but keep in mind the following**:
-- You can close any tab from the user interface, but don't worry, as you can re-open any window at any time.
-- You can click and hold any tab to reallocate it anywhere you want.
 
 ## License
 
