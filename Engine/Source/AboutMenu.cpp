@@ -19,15 +19,15 @@ AboutMenu::~AboutMenu()
 
 bool AboutMenu::Update(float dt)
 {
-	if (ImGui::Begin("About Ragnar Engine", &active))
+	if (ImGui::Begin("About ManyoEngineCp", &active))
 	{
-		ImGui::TextWrapped("Ragnar Engine v0.3");
+		ImGui::TextWrapped("ManyoEngineCp v0.3");
 		ImGui::NewLine();
 		ImGui::TextWrapped
-		(" This is a videogame engine created for our game engine project. We are two students, Lucas Perez and Oriol Bernal, and the final goal for this engine is"
+		(" This is a videogame engine created for our game engine project. We are three students, Maria Garrigolas, Max LLovera and Arnau Ustrell, and the final goal for this engine is"
 			" to create a videogame."
 		);
-		ImGui::TextWrapped("By Oriol Bernal & Lucas Perez");
+		ImGui::TextWrapped("By Maria Garrigolas, Max Llovera & Arnau Ustrell");
 		ImGui::NewLine();
 
 		ImGui::TextWrapped("3rd Party Libraries used:");

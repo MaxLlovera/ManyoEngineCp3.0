@@ -186,18 +186,18 @@ bool MainMenuBar::Update(float dt)
 		if (ImGui::BeginMenu("Help"))
 		{
 			ImGui::MenuItem("Demo Menu", NULL, &showMenu);
-			ImGui::MenuItem("About Ragnar Engine", "", &menus[(int)Menus::ABOUT]->active);
+			ImGui::MenuItem("About ManyoEngineCp", "", &menus[(int)Menus::ABOUT]->active);
 			if (ImGui::MenuItem("Documentation", "F1", &ret))
 			{
-				app->RequestBrowser("https://github.com/UriKurae/Ragnar-Engine");
+				app->RequestBrowser("https://github.com/MaxLlovera/ManyoEngineCp3.0");
 			}
 			if (ImGui::MenuItem("Report a Bug", "", &ret))
 			{
-				app->RequestBrowser("https://github.com/UriKurae/Ragnar-Engine/issues");
+				app->RequestBrowser("https://github.com/MaxLlovera/ManyoEngineCp3.0/issues");
 			}
 			if (ImGui::MenuItem("Download latest", "", &ret))
 			{
-				app->RequestBrowser("https://github.com/UriKurae/Ragnar-Engine/releases");
+				app->RequestBrowser("https://github.com/MaxLlovera/ManyoEngineCp3.0/releases");
 			}
 			ImGui::EndMenu();
 		}
