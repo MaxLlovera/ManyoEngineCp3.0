@@ -8,11 +8,17 @@ Link to github repoisitory: https://github.com/MaxLlovera/ManyoEngineCp3.0
 
 This project is forked from: https://github.com/UriKurae/RagnarEngine
 
-## Planning
+## How to use it:
 
-The purpose of this project is to create a friendly-user, well optimized Game Engine for the subject "VideoGame Engines" from the 3rd year. The short term plan is to implement the basic features of a Game Engine, such as loading models, working in a 3D environment, etc...
+- Camera Move: · W -> Move Forward · A -> Move Left · S -> Move Backward · D -> Move right · Mouse Wheel -> Zoom in / Zoom out · F -> Focus the camera to selected object · Alt+Left clik -> Orbit the object · Hold SHIFTH -> Duplicates movement speed
 
-For the long term, we would love to create a game with this Video Game Engine
+- Drag and drop: Drag and drop models and textures to the engine to load it.
+
+- Select a game Object and delete it with Supr
+
+- Timer Play/Pause/Stop functionality
+
+- Selecting Game Objects open a component Inspector where you can edit and show some debuging options like Boundary Boxes of a mesh, Frustum culling and Fov for the Main Camera.
 
 ## Features
 
@@ -88,14 +94,9 @@ The menus are also very straight-forward, you can navigate through them and have
 - You can close any tab from the user interface, but don't worry, as you can re-open any window at any time.
 - You can click and hold any tab to reallocate it anywhere you want.
 
-
-## Game Engine Developers
-
-- [Lucas Pérez García](https://github.com/LucasPG14).
-- [Oriol Bernal Martínez](https://github.com/UriKurae).
-
 ## License
 
-**Copyright (c) Lucas Pérez and Oriol Bernal. License Under the MIT License.**
+
+**Copyright (c) 2021 Max Llovera, Maria Garrigolas & Arnau Ustrell.**
 
 - [MIT License link to check more details about it.](https://opensource.org/licenses/MIT)
