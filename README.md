@@ -11,6 +11,13 @@ This project is forked from: https://github.com/UriKurae/RagnarEngine
 ## Features
 v1.0
 
+- Particle System
+- Smoke coming out of two chimneys
+- Save particle template
+- Load particle template
+- Working on Firework particle
+- Fixing bugs
+
 v0.8
 
 - Stencil border for the selected GameObject.
