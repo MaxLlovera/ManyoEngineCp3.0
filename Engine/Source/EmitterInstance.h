@@ -5,6 +5,7 @@
 #include "Texture.h"
 #include "Application.h"
 #include "ModuleScene.h"
+#include "ParticleEmitter.h"
 #include "MathGeoLib/src/Geometry/Frustum.h"
 #include "MathGeoLib/src/Algorithm/Random/LCG.h"
 #include <string>
@@ -23,6 +24,7 @@ public:
 	void OnEditor(int emitterIndex);
 	void ParticSecond(float particSec);
 
+
 public:
 
 	int maxParticles;
@@ -31,6 +33,7 @@ public:
 	bool toDelete;
 
 	std::vector<Particles*> particlesBuff;
+	std::vector<ParticleEmitter*> effects;
 	Particles* particleReference;
 	GameObject* own;
 

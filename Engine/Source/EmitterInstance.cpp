@@ -40,6 +40,14 @@ void EmitterInstance::Emit(float dt)
 					particlesBuff[i]->size = particleReference->size;
 					particlesBuff[i]->color = particleReference->color;
 
+					for (int j = 0; j < effects.size(); j++)
+					{
+						if (effects[j] != nullptr)
+						{
+							effects[j]->Init(*particlesBuff[i]);
+						}
+					}
+
 					return;
 				}
 			}

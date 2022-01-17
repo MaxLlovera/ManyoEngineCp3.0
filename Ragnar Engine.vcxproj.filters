@@ -274,6 +274,9 @@
     <ClInclude Include="Engine\Source\EmitterInstance.h">
       <Filter>Sources\Particles</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\Source\ParticleEmitter.h">
+      <Filter>Sources\Particles</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Source\ModuleCamera3D.cpp">
@@ -451,6 +454,9 @@
       <Filter>Sources\Particles</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Source\EmitterInstance.cpp">
+      <Filter>Sources\Particles</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Source\ParticleEmitter.cpp">
       <Filter>Sources\Particles</Filter>
     </ClCompile>
   </ItemGroup>

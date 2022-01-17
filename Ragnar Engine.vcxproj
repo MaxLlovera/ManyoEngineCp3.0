@@ -147,6 +147,7 @@
     <ClInclude Include="Engine\Source\ModuleRenderer3D.h" />
     <ClInclude Include="Engine\Source\ModuleScene.h" />
     <ClInclude Include="Engine\Source\ModuleWindow.h" />
+    <ClInclude Include="Engine\Source\ParticleEmitter.h" />
     <ClInclude Include="Engine\Source\Particles.h" />
     <ClInclude Include="Engine\Source\ParticlesComponent.h" />
     <ClInclude Include="Engine\Source\Primitive.h" />
@@ -212,6 +213,7 @@
     <ClCompile Include="Engine\Source\ModuleRenderer3D.cpp" />
     <ClCompile Include="Engine\Source\ModuleScene.cpp" />
     <ClCompile Include="Engine\Source\ModuleWindow.cpp" />
+    <ClCompile Include="Engine\Source\ParticleEmitter.cpp" />
     <ClCompile Include="Engine\Source\Particles.cpp" />
     <ClCompile Include="Engine\Source\ParticlesComponent.cpp" />
     <ClCompile Include="Engine\Source\Primitive.cpp" />
