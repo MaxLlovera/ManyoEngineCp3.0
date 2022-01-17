@@ -19,15 +19,15 @@ AboutMenu::~AboutMenu()
 
 bool AboutMenu::Update(float dt)
 {
-	if (ImGui::Begin("About ManyoEngineCp", &active))
+	if (ImGui::Begin("About ManyoEngine", &active))
 	{
-		ImGui::TextWrapped("ManyoEngineCp v0.3");
+		ImGui::TextWrapped("ManyoEngine v1.0");
 		ImGui::NewLine();
 		ImGui::TextWrapped
-		(" This is a videogame engine created for our game engine project. We are three students, Maria Garrigolas, Max LLovera and Arnau Ustrell, and the final goal for this engine is"
+		(" This is a videogame engine created for our game engine project. We are two students, Max Llovera, Arnau Ustrell and Maria Garrigolas, and the final goal for this engine is"
 			" to create a videogame."
 		);
-		ImGui::TextWrapped("By Maria Garrigolas, Max Llovera & Arnau Ustrell");
+		ImGui::TextWrapped("By Max Llovera, Arnau Ustrell & Maria Garrigolas");
 		ImGui::NewLine();
 
 		ImGui::TextWrapped("3rd Party Libraries used:");
@@ -47,7 +47,7 @@ bool AboutMenu::Update(float dt)
 		ImGui::NewLine();
 		ImGui::TextWrapped("MIT License");
 		ImGui::NewLine();
-		ImGui::TextWrapped("Copyright(c) 2021 Oriol Bernal Martinez & Lucas Perez Garcia");
+		ImGui::TextWrapped("Copyright(c) 2021 Max Llovera, Arnau Ustrell & Maria Garrigolas");
 		ImGui::NewLine();
 		ImGui::TextWrapped(
 			"Permission is hereby granted, free of charge, to any person obtaining a copy"

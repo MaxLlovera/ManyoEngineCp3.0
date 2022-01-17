@@ -91,10 +91,6 @@ uint ResourceManager::CreateResource(ResourceType type, std::string& assets, std
 		library = MODELS_FOLDER + std::string("model_") + std::to_string(uid) + ".rgmodel";
 		resource = std::make_shared<Model>(uid, assets, library);
 		break;
-	//case ResourceType::PARTICLES:
-	//	library = MODELS_FOLDER + std::string("particles_") + std::to_string(uid) + ".rgparticles";
-	//	resource = std::make_shared<Particles>(uid, assets, library);
-	//	break;
 	}
 
 	if (resource != nullptr) map[uid] = resource;
@@ -116,9 +112,6 @@ void ResourceManager::CreateResourceCreated(ResourceType type, uint uid, std::st
 	case ResourceType::MODEL:
 		resource = std::make_shared<Model>(uid, assets, library);
 		break;
-	//case ResourceType::PARTICLES:
-	//	resource = std::make_shared<Particles>(uid, assets, library);
-	//	break;
 	default:
 		break;
 	}
@@ -150,6 +143,20 @@ std::shared_ptr<Resource> ResourceManager::LoadResource(std::string& path)
 		{
 			res->Load();
 			return res;
+		}
+	}
+}
+
+void ResourceManager::LoadResource(std::string& path, GameObject& particle)
+{
+	std::map<uint, std::shared_ptr<Resource>>::iterator it;
+	for (it = map.begin(); it != map.end(); ++it)
+	{
+		std::shared_ptr<Resource> res = (*it).second;
+		if (res->GetAssetsPath() == path)
+		{
+			std::shared_ptr<Model> model = std::static_pointer_cast<Model>(res);
+			model->LoadParticle(particle);
 		}
 	}
 }
@@ -206,7 +213,6 @@ void ResourceManager::ImportResourcesFromLibrary()
 					if (files[i].find(".rgmodel") != std::string::npos) CreateResourceCreated(ResourceType::MODEL, uid, assets, dir + files[i]);
 					else if (files[i].find(".rgtexture") != std::string::npos) CreateResourceCreated(ResourceType::TEXTURE, uid, assets, dir + files[i]);
 					else if (files[i].find(".rgmesh") != std::string::npos) CreateResourceCreated(ResourceType::MESH, uid, assets, dir + files[i]);
-					//else if (files[i].find(".rgparticles") != std::string::npos) CreateResourceCreated(ResourceType::PARTICLES, uid, assets, dir + files[i]);
 
 					RELEASE_ARRAY(buffer);
 				}
@@ -246,9 +252,6 @@ void ResourceManager::ImportAllResources()
 			case ResourceType::TEXTURE:
 				TextureImporter::ImportTexture(*it);
 				break;
-			//case ResourceType::PARTICLES:
-			//	ParticlesImporter::ImportTexture(*it);
-			//	break;
 			}
 		}
 

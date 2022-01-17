@@ -1,34 +1,27 @@
 #pragma once
-
 #include "Component.h"
-#include "TransformComponent.h"
+#include "Application.h"
+#include "ModuleCamera3D.h"
 #include "CameraComponent.h"
-#include "Color.h"
+#include "TransformComponent.h"
 
+class BillboardComponent : public Component {
 
-enum class BillboardType
-{
-	NONE,
-	SCREEN,
-	WORLD,
-	AXIS
-};
-
-class BillboardComponent : public Component
-{
 public:
-	BillboardComponent(GameObject* own);
+
+	BillboardComponent(GameObject* own, TransformComponent* trans);
 	~BillboardComponent();
 
-	void AlignBillboardType();
-	Quat ScreenAligned(CameraComponent* camera);
-	Quat WorldAligned(CameraComponent* camera, float3 pos);
-	Quat AxisAligned(CameraComponent* camera, float3 pos);
-	void Draw(Color color);
+	bool Update(float dt) override;
+
+	//Quat ScreenAligned(CameraComponent* camera);
+	//Quat WorldAligned(CameraComponent* camera, float3 pos);
+	//Quat AxisAligned(CameraComponent* camera, float3 pos);
+	Quat RotateToFaceCamera();
+
+	void OnEditor() override;
 
 public:
+
 	TransformComponent* transform;
-
-	BillboardType billboardType;
-
 };

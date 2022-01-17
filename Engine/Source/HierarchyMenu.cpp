@@ -84,9 +84,8 @@ bool HierarchyMenu::Update(float dt)
 				gameObjectOptions = false;
 			}
 			else if (ImGui::Button("Delete", ImVec2(100.0f, 30.0f)))
-			{
-				
-				if (selected && selected->GetComponent<CameraComponent>() == nullptr)
+			{				
+				if (selected && selected->GetComponent(ComponentType::CAMERA) == nullptr)
 				{
 					for (std::vector<GameObject*>::iterator i = selectedParent->GetChilds().begin(); i != selectedParent->GetChilds().end(); ++i)
 					{

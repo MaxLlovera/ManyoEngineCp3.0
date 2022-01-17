@@ -12,8 +12,8 @@ enum class ComponentType
 	MESH_RENDERER,
 	MATERIAL,
 	CAMERA,
-	PARTICLE,
-	BILLBOARD
+	PARTICLE_SYSTEM,
+	BILLBOARD,
 };
 
 class Component

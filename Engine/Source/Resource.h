@@ -10,8 +10,7 @@ enum class ResourceType
 	TEXTURE,
 	MESH,
 	MODEL,
-	SCENE,
-	PARTICLES
+	SCENE
 };
 
 class Resource
@@ -32,6 +31,7 @@ public:
 	inline const std::string& GetLibraryPath() const { return libraryPath; }
 	inline const std::string& GetName() const { return name; }
 
+	
 protected:
 	uint uid;
 	ResourceType type;

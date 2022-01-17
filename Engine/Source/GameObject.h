@@ -3,13 +3,12 @@
 #include <string>
 #include <vector>
 #include "Component.h"
-
+#include "BillboardComponent.h"
 #include "TransformComponent.h"
 #include "MeshComponent.h"
 #include "MaterialComponent.h"
 #include "CameraComponent.h"
-#include "ParticlesComponent.h"
-#include "BillboardComponent.h"
+
 #include "MathGeoLib/src/MathGeoLib.h"
 
 typedef unsigned int uint;
@@ -48,7 +47,7 @@ public:
 	inline GameObject* GetParent() const { return parent; }
 	inline const bool& GetActive() const { return active; }
 	inline std::vector<GameObject*>& GetChilds() { return children; }
-
+	Component* GetComponent(ComponentType type);
 	void SetAABB(AABB newAABB, bool needToClean = false);
 	void SetAABB(OBB newOBB);
 	void SetNewAABB();
@@ -63,12 +62,6 @@ public:
 	void OnSave(JsonParsing& node, JSON_Array* array);
 
 	inline const std::vector<Component*> GetComponents() const { return components; }
-
-	template<typename T>
-	T* GetComponent();
-
-
-	ParticlesComponent* p;
 
 private:
 	std::string name;
@@ -91,17 +84,3 @@ private:
 	uint uuid;
 };
 
-template<typename T>
-inline T* GameObject::GetComponent()
-{
-	T* component = nullptr;
-	
-	for (std::vector<Component*>::iterator i = components.begin(); i < components.end(); ++i)
-	{
-		component = dynamic_cast<T*>(*i);
-		if (component != nullptr)
-			return component;
-	}
-
-	return component;
-}

@@ -2,6 +2,7 @@
 
 #include "Module.h"
 #include "GameObject.h"
+#include "Globals.h"
 #include "Quadtree.h"
 #include "GameTimer.h"
 #include <vector>
@@ -46,7 +47,6 @@ public:
 	inline GameObject* GetRoot() const { return root; }
 	inline GameState GetGameState() const { return gameState; }
 	GameObject* GetGoByUuid(double uuid) const;
-	CameraComponent* getmainCamera();
 
 	void SetMainCamera(CameraComponent* camComponent) { mainCamera = camComponent; }
 	void Play();
@@ -81,8 +81,17 @@ public:
 	Quadtree& GetQuadtree() { return qTree; }
 	void SetGameDeltaTime(float deltaTime) { gameTimer.SetDesiredDeltaTime(deltaTime); }
 
+	GameObject* CreateSmoke(float3 position);
+
+public: 
+
 	CameraComponent* mainCamera;
+	GameObject* smoke1; 
+	GameObject* smoke2;
+	GameObject* street;
+
 private:
+
 	GameObject* root;
 	Quadtree qTree;
 	GameState gameState;
@@ -94,4 +103,6 @@ private:
 	GameObject* goToRecalculate;
 
 	std::string sceneDir;
+
+	float3 pos1, pos2;
 };

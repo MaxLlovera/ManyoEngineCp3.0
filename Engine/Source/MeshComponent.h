@@ -1,10 +1,11 @@
 #pragma once
 
+#include "GameObject.h"
 #include "Component.h"
 #include "IndexBuffer.h"
 #include "VertexBuffer.h"
+#include "glmath.h"
 #include "MathGeoLib/src/MathGeoLib.h"
-
 #include <vector>
 
 typedef unsigned int GLuint;
@@ -34,14 +35,18 @@ public:
 	inline void SetTransform(TransformComponent* trans) { transform = trans; }
 	inline void SetMaterial(MaterialComponent* mat) { material = mat; }
 
-	inline AABB GetLocalAABB() { return localBoundingBox; }
+	AABB GetLocalAABB() { return localBoundingBox; }
 	const std::shared_ptr<Mesh> GetMesh() const { return mesh; }
+
+public:
+
+	Vec4 colorNormal;
+
 private:
 	TransformComponent* transform;
 	MaterialComponent* material;
 
 	float normalLength;
-	float3 colorNormal;
 	
 	bool faceNormals;
 	bool verticesNormals;

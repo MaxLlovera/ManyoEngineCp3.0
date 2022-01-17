@@ -17,8 +17,8 @@ class ModuleEditor;
 class FileSystem;
 
 #define CONFIG_FILENAME	"config.json"
-#define APPLICATION_NAME "ManyoEngineCp"
-#define ORGANIZATION_NAME "XeicsFakeXeics Studios"
+#define APPLICATION_NAME "ManyoEngine"
+#define ORGANIZATION_NAME "FakeXeicsFake Xeics"
 
 class Application
 {

@@ -1,32 +1,38 @@
 #pragma once
-
+#include "Particles.h"
+#include "Globals.h"
 #include "Component.h"
+#include "GameTimer.h"
+#include "Color.h"
+
+#include "MathGeoLib/src/MathGeoLib.h"
 #include <vector>
-#include "EmitterInstance.h"
-#include "ResourceParticles.h"
 
-class GameObject;
+class CameraComponent;
+class TransformComponent;
+class EmitterInstance;
 
-class ParticlesComponent : public Component
-{
+class ParticlesComponent : public Component {
+
 public:
-	ParticlesComponent(GameObject* owner);
+	ParticlesComponent(GameObject* own, TransformComponent* trans, uint numParticles = 1);
 	~ParticlesComponent();
-	
-	void Save();
-	void Load();
-	void OnEditor() override;
+
+	void SetEmitter(EmitterInstance* emitter);
 	bool Update(float dt) override;
-	void Reset();
-
-
-
+	void OnEditor() override;
 public:
-	std::vector<EmitterInstance> emitters;
+	bool looping = false;
+	float maxDuration = 0.0f;
 
-	ResourceParticles* resourceParticles;
-
-	Particles* partic;
-
-	int maxParticles;
+protected:
+	int maxParticlesEditor = 200;
+	float lifetimeEditor = 20.0f;
+	float speedEditor = 5.0f;
+	float sizeEditor = 5.0f;
+	Color colorEditor = white;
+	std::vector<EmitterInstance*> emitters;
+	bool isActive;
+	GameTimer timer;
+	TransformComponent* transform;
 };

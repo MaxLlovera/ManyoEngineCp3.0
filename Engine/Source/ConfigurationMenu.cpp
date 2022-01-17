@@ -76,8 +76,8 @@ bool ConfigurationMenu::Update(float dt)
 	}
 	if (ImGui::CollapsingHeader("Application"))
 	{
-		ImGui::Text("ManyoEngineCp");
-		ImGui::Text("UPC CITM");
+		ImGui::Text("ManyoEngine");
+		ImGui::Text("FakeXeicsFake Xeics");
 
 		int framerate = app->GetFPSLimit();
 

@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Archivo de inclusión generado de Microsoft Visual C++.
-// Usado por Ragnar Engine.rc
+// Usado por manyoEngine.rc
 //
 #define IDI_ICON1                       101
 

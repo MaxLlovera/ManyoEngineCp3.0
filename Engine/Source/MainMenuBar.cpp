@@ -3,7 +3,6 @@
 #include "ModuleRenderer3D.h"
 #include "ModuleInput.h"
 #include "ModuleScene.h"
-
 #include "ConsoleMenu.h"
 #include "ConfigurationMenu.h"
 #include "MainMenuBar.h"
@@ -82,7 +81,7 @@ bool MainMenuBar::Update(float dt)
 			}
 			if (ImGui::MenuItem("Open Project", "Ctrl + O", &ret))
 			{
-				std::string filePath = Dialogs::OpenFile("Ragnar Scene (*.ragnar)\0*.ragnar\0");
+				std::string filePath = Dialogs::OpenFile("Manyo Scene (*.manyo)\0*.manyo\0");
 				if (!filePath.empty()) app->scene->LoadScene(filePath.c_str());
 			}
 
@@ -92,14 +91,14 @@ bool MainMenuBar::Update(float dt)
 			{
 				if (app->scene->SceneDirectory().empty())
 				{
-					std::string filePath = Dialogs::SaveFile("Ragnar Scene (*.ragnar)\0*.ragnar\0");
+					std::string filePath = Dialogs::SaveFile("Manyo Scene (*.manyo)\0*.manyo\0");
 					if (!filePath.empty()) app->scene->SaveScene(filePath.c_str());
 				}
 				else app->scene->SaveScene(app->scene->SceneDirectory().c_str());
 			}
 			if (ImGui::MenuItem("Save As", "Ctrl + Shift + S", &ret))
 			{
-				std::string filePath = Dialogs::SaveFile("Ragnar Scene (*.ragnar)\0*.ragnar\0");
+				std::string filePath = Dialogs::SaveFile("Manyo Scene (*.manyo)\0*.manyo\0");
 				if (!filePath.empty()) app->scene->SaveScene(filePath.c_str());
 			}
 			if (ImGui::MenuItem("Exit", "ESC", &ret))
@@ -113,6 +112,24 @@ bool MainMenuBar::Update(float dt)
 			ImGui::SetTooltip("Opens the file menu");
 		}
 
+		if (ImGui::BeginMenu("Assets"))
+		{
+			if (ImGui::MenuItem("Create Empty", "", &ret))
+			{
+				GameObject* go = app->scene->CreateGameObject(app->scene->GetRoot(), true);
+				go->SetName("EmptyGameObject");
+			}
+			if (ImGui::MenuItem("Create Particle System", "", &ret))
+			{
+				GameObject* go = app->scene->CreateGameObject(app->scene->GetRoot(), true);
+				go->CreateComponent(ComponentType::PARTICLE_SYSTEM);
+				go->SetName("Custom Particle System");
+			}
+			ImGui::EndMenu();
+		}
+		if (ImGui::IsItemHovered())
+			ImGui::SetTooltip("Opens the assets menu");
+
 		if (ImGui::BeginMenu("Edit"))
 		{
 			ImGui::MenuItem("Undo", "Ctrl + Z", &ret);
@@ -120,9 +137,7 @@ bool MainMenuBar::Update(float dt)
 			ImGui::EndMenu();
 		}
 		if (ImGui::IsItemHovered())
-		{
 			ImGui::SetTooltip("Opens the edit menu");
-		}
 
 		if (ImGui::BeginMenu("Window"))
 		{
@@ -133,72 +148,58 @@ bool MainMenuBar::Update(float dt)
 
 			ImGui::EndMenu();
 		}
+
 		if (ImGui::IsItemHovered())
-		{
 			ImGui::SetTooltip("Opens the window menu");
-		}
 
 		if (ImGui::BeginMenu("View"))
 		{
 			if (ImGui::MenuItem("Depth Test", NULL, app->renderer3D->GetDepthTest()))
-			{
 				app->renderer3D->SetDepthTest();
-			}
+
 			if (ImGui::MenuItem("Cull Face", NULL, app->renderer3D->GetCullFace()))
-			{
 				app->renderer3D->SetCullFace();
-			}
+
 			if (ImGui::MenuItem("Lighting", NULL, app->renderer3D->GetLighting()))
-			{
 				app->renderer3D->SetLighting();
-			}
+
 			if (ImGui::MenuItem("Color Material", NULL, app->renderer3D->GetColorMaterial()))
-			{
 				app->renderer3D->SetColorMaterial();
-			}
+
 			if (ImGui::MenuItem("Texture 2D", NULL, app->renderer3D->GetTexture2D()))
-			{
 				app->renderer3D->SetTexture2D();
-			}
+
 			if (ImGui::MenuItem("Stencil", NULL, app->renderer3D->GetStencil()))
-			{
 				app->renderer3D->SetStencil();
-			}
+
 			if (ImGui::MenuItem("Blending", NULL, app->renderer3D->GetBlending()))
-			{
 				app->renderer3D->SetBlending();
-			}
+
 			if (ImGui::MenuItem("Wire", NULL, app->renderer3D->GetWireMode()))
-			{
 				app->renderer3D->SetWireMode();
-			}
+
 			if (ImGui::MenuItem("Show Raycast", NULL, app->renderer3D->GetRayCast()))
-			{
 				app->renderer3D->SetWireMode();
-			}
+
 			ImGui::EndMenu();
 		}
 		if (ImGui::IsItemHovered())
-		{
 			ImGui::SetTooltip("Opens the view menu");
-		}
 
 		if (ImGui::BeginMenu("Help"))
 		{
 			ImGui::MenuItem("Demo Menu", NULL, &showMenu);
-			ImGui::MenuItem("About ManyoEngineCp", "", &menus[(int)Menus::ABOUT]->active);
+			ImGui::MenuItem("About ManyoEngine", "", &menus[(int)Menus::ABOUT]->active);
+
 			if (ImGui::MenuItem("Documentation", "F1", &ret))
-			{
 				app->RequestBrowser("https://github.com/MaxLlovera/ManyoEngineCp3.0");
-			}
+
 			if (ImGui::MenuItem("Report a Bug", "", &ret))
-			{
-				app->RequestBrowser("https://github.com/MaxLlovera/ManyoEngineCp3.0/issues");
-			}
+				app->RequestBrowser("https://github.com/MaxLlovera/ManyoEngineCp3.0/pulls");
+
 			if (ImGui::MenuItem("Download latest", "", &ret))
-			{
 				app->RequestBrowser("https://github.com/MaxLlovera/ManyoEngineCp3.0/releases");
-			}
+
 			ImGui::EndMenu();
 		}
 		if (ImGui::IsItemHovered())
@@ -228,7 +229,7 @@ bool MainMenuBar::Update(float dt)
 		{
 			if (app->scene->SceneDirectory().empty())
 			{
-				std::string filePath = Dialogs::SaveFile("Ragnar Scene (*.ragnar)\0*.ragnar\0");
+				std::string filePath = Dialogs::SaveFile("Manyo Scene (*.manyo)\0*.manyo\0");
 				if (!filePath.empty()) app->scene->SaveScene(filePath.c_str());
 			}
 			else
@@ -269,7 +270,6 @@ bool MainMenuBar::Update(float dt)
 
 		ImGui::SameLine();
 		ImGui::ImageButton((ImTextureID)buttonNextFrame->GetId(), { 27,18 });
-
 	}
 	else if (app->scene->GetGameState() == GameState::PLAYING || app->scene->GetGameState() == GameState::PAUSE)
 	{
@@ -293,8 +293,7 @@ bool MainMenuBar::Update(float dt)
 
 	}
 
-	if (app->input->GetKey(SDL_SCANCODE_LCTRL) == KeyState::KEY_REPEAT &&
-		app->input->GetKey(SDL_SCANCODE_N) == KeyState::KEY_DOWN)
+	if (app->input->GetKey(SDL_SCANCODE_LCTRL) == KeyState::KEY_REPEAT && app->input->GetKey(SDL_SCANCODE_N) == KeyState::KEY_DOWN)
 	{
 		saveWindow = true;
 	}
@@ -302,7 +301,7 @@ bool MainMenuBar::Update(float dt)
 	if (app->input->GetKey(SDL_SCANCODE_LCTRL) == KeyState::KEY_REPEAT &&
 		app->input->GetKey(SDL_SCANCODE_O) == KeyState::KEY_DOWN)
 	{
-		std::string filePath = Dialogs::OpenFile("Ragnar Scene (*.ragnar)\0*.ragnar\0");
+		std::string filePath = Dialogs::OpenFile("Manyo Scene (*.manyo)\0*.manyo\0");
 		if (!filePath.empty())
 		{
 			app->scene->LoadScene(filePath.c_str());
@@ -313,7 +312,7 @@ bool MainMenuBar::Update(float dt)
 		app->input->GetKey(SDL_SCANCODE_LSHIFT) == KeyState::KEY_REPEAT &&
 		app->input->GetKey(SDL_SCANCODE_S) == KeyState::KEY_DOWN)
 	{
-		std::string filePath = Dialogs::SaveFile("Ragnar Scene (*.ragnar)\0*.ragnar\0");
+		std::string filePath = Dialogs::SaveFile("Manyo Scene (*.manyo)\0*.manyo\0");
 		if (!filePath.empty()) app->scene->SaveScene(filePath.c_str());
 	}
 	else if (app->input->GetKey(SDL_SCANCODE_LCTRL) == KeyState::KEY_REPEAT &&
@@ -321,7 +320,7 @@ bool MainMenuBar::Update(float dt)
 	{
 		if (app->scene->SceneDirectory().empty())
 		{
-			std::string filePath = Dialogs::SaveFile("Ragnar Scene (*.ragnar)\0*.ragnar\0");
+			std::string filePath = Dialogs::SaveFile("Manyo Scene (*.manyo)\0*.manyo\0");
 			if (!filePath.empty()) app->scene->SaveScene(filePath.c_str());
 		}
 		else app->scene->SaveScene(app->scene->SceneDirectory().c_str());

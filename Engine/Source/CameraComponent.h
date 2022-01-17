@@ -19,34 +19,33 @@ public:
 	bool Update(float dt) override;
 	void Draw() override;
 
+	float4x4 GetViewMatrixFrustumTransposed() const;
+	float3 CameraComponent::GetFrustumPos() const;
 	void SetPlanes();
 	void CalculateVerticalFov(float horizontalFovRadians, float width, float height);
 	void UpdateFovAndScreen(float width, float height);
 	void UpdateFov();
 	
+
 	void CompileBuffers();
 	bool CompareRotations(Quat& quat1, Quat& quat2);
-	float4x4 GetViewMatrixFrustumTransposed() const;
 
 	bool OnLoad(JsonParsing& node) override;
 	bool OnSave(JsonParsing& node, JSON_Array* array) override;
 
-	float3 CameraComponent::GetFrustumPos() const;
-
-
 	int CameraComponent::ContainsAaBox(const AABB& boundingBox);
-
-	float4x4 matrixViewFrustum;
-	float4x4 matrixProjectionFrustum;
-
-
 
 public:
 
-	Frustum camera;
+	float4x4 matrixViewFrustum;
+	float4x4 matrixProjectionFrustum;
 	TransformComponent* transform;
+	Frustum camera;
+
 	Quat currentRotation;
 	float3 currentPos;
+
+private:
 
 	float nearPlane;
 	float farPlane;

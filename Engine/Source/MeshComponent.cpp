@@ -20,7 +20,7 @@ MeshComponent::MeshComponent(GameObject* own, TransformComponent* trans) : mater
 	type = ComponentType::MESH_RENDERER;
 	owner = own;
 	mesh = nullptr;
-	material = owner->GetComponent<MaterialComponent>();
+	material = (MaterialComponent*)owner->GetComponent(ComponentType::MATERIAL);
 
 	showMeshMenu = false;
 }
@@ -86,6 +86,9 @@ void MeshComponent::DrawOutline()
 
 void MeshComponent::OnEditor()
 {
+	float color[4] = { colorNormal.r, colorNormal.g, colorNormal.b, colorNormal.a };
+
+
 	ImGui::PushID(this);
 
 	if (ImGui::CollapsingHeader("Mesh Renderer"))
@@ -106,7 +109,7 @@ void MeshComponent::OnEditor()
 		ImGui::Checkbox("Vertices normals", &verticesNormals);
 		ImGui::Checkbox("Face normals", &faceNormals);
 		ImGui::DragFloat("Normal Length", &normalLength, 0.200f);
-		ImGui::DragFloat3("Normal Color", colorNormal.ptr(), 1.0f, 0.0f, 255.0f);
+		ImGui::DragFloat4("Normal Color", color, 1.0f, 0.0f, 255.0f);
 		ImGui::Text("Reference Count: ");
 		ImGui::SameLine();
 		ImGui::TextColored(ImVec4(1.0f, 1.0f, 0.0f, 1.0f), "%d", mesh ? mesh.use_count() : 0);

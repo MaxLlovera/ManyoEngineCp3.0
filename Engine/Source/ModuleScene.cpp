@@ -8,13 +8,18 @@
 #include "FileSystem.h"
 #include "Resource.h"
 #include "ResourceManager.h"
+#include "EmitterInstance.h"
 
 #include <stack>
 
 #include "Profiling.h"
+#include "ParticlesComponent.h"
+#include "ModuleInput.h"
 
 ModuleScene::ModuleScene() : sceneDir(""), mainCamera(nullptr), gameState(GameState::NOT_PLAYING), frameSkip(0), resetQuadtree(true), goToRecalculate(nullptr)
 {
+	smoke1 = nullptr;
+	smoke2 = nullptr;
 	root = new GameObject();
 	root->SetName("Untitled");
 }
@@ -27,9 +32,6 @@ bool ModuleScene::Start()
 {
 	RG_PROFILING_FUNCTION("Starting Scene");
 
-	//GameObject* parti = CreateGameObject(nullptr);
-	//parti->CreateComponent(ComponentType::PARTICLE);
-
 	GameObject* camera = CreateGameObject(nullptr);
 	camera->CreateComponent(ComponentType::CAMERA);
 	camera->SetName("Camera");
@@ -39,8 +41,13 @@ bool ModuleScene::Start()
 	ResourceManager::GetInstance()->ImportResourcesFromLibrary();
 	ResourceManager::GetInstance()->ImportAllResources();
 	ImportPrimitives();
-	ResourceManager::GetInstance()->LoadResource(std::string("Assets/Resources/Street.fbx"));
 
+	street = CreateGameObject(root, true);
+	ResourceManager::GetInstance()->LoadResource(std::string("Assets/Resources/Street.fbx"), *street);
+
+	smoke1 = CreateSmoke(float3{ 21.9f,10.17f,42.54f });
+	smoke2 = CreateSmoke(float3{ -31.09f,7.99f,-26.33f });
+	
 	return true;
 }
 
@@ -104,7 +111,6 @@ bool ModuleScene::Update(float dt)
 			for (int i = 0; i < go->GetChilds().size(); ++i)
 				objects.push(go->GetChilds()[i]);
 		}
-
 		resetQuadtree = false;
 	}
 
@@ -142,12 +148,6 @@ bool ModuleScene::Draw()
 				stack.push(go->GetChilds()[i]);
 		}
 	}
-	//for (int i = 0; i < root->GetChilds().size(); ++i)
-	//{
-	//	GameObject* go = root->GetChilds()[i];
-	//	if (go->GetActive())
-	//		go->Draw();
-	//}
 
 	return true;
 }
@@ -155,7 +155,6 @@ bool ModuleScene::Draw()
 bool ModuleScene::CleanUp()
 {
 	RELEASE(root);
-
 	return true;
 }
 
@@ -348,12 +347,6 @@ GameObject* ModuleScene::GetGoByUuid(double uuid) const
 	return nullptr;
 }
 
-CameraComponent* ModuleScene::getmainCamera()
-{
-	return mainCamera;
-}
-
-
 bool ModuleScene::SaveScene(const char* name)
 {
 	DEBUG_LOG("Saving Scene");
@@ -448,46 +441,38 @@ void ModuleScene::ImportPrimitives()
 	texCoords.clear();
 }
 
-//void ModuleScene::AddToQuadtree(GameObject* go)
-//{
-//	qTree.Insert(go);
-//}
-//
-//void ModuleScene::RemoveFromQuadtree(GameObject* go)
-//{
-//	qTree.Remove(go);
-//}
+GameObject* ModuleScene::CreateSmoke(float3 position)
+{
+	GameObject* go = CreateGameObject(root);
+	go->SetName("Smoke");
+	go->CreateComponent(ComponentType::PARTICLE_SYSTEM);
+	TransformComponent* transformComponent = (TransformComponent*)go->GetComponent(ComponentType::TRANSFORM);
+	transformComponent->position = position;
+
+	ParticlesComponent* particleSystem = (ParticlesComponent*)go->GetComponent(ComponentType::PARTICLE_SYSTEM);
+	particleSystem->looping = true;
+	EmitterInstance* emitter = new EmitterInstance(go);
+	emitter->maxParticles = 100;
+	emitter->particSecond = 30;
+	emitter->minLifeTime = 0.5f;
+	emitter->maxLifeTime = 1.5f;
+	particleSystem->SetEmitter(emitter);
+
+	go->CreateComponent(ComponentType::MATERIAL);
+	MaterialComponent* smokeMaterial1 = (MaterialComponent*)go->GetComponent(ComponentType::MATERIAL);
+	
+
+	return go;
+}
 
 void ModuleScene::Play()
 {
-	DEBUG_LOG("Saving Scene");
-
-	JsonParsing sceneFile;
-
-	sceneFile = sceneFile.SetChild(sceneFile.GetRootValue(), "Scene");
-	JSON_Array* array = sceneFile.SetNewJsonArray(sceneFile.GetRootValue(), "Game Objects");
-	root->OnSave(sceneFile, array);
-
-	char* buf;
-	uint size = sceneFile.Save(&buf);
-
-	if (app->fs->Save(SCENES_FOLDER "scenePlay.ragnar", buf, size) > 0)
-		DEBUG_LOG("Scene saved succesfully");
-	else
-		DEBUG_LOG("Scene couldn't be saved");
-
-	RELEASE_ARRAY(buf);
-	
 	gameState = GameState::PLAYING;
 	gameTimer.ResetTimer();
 }
 
 void ModuleScene::Stop()
 {
-	LoadScene("Assets/Scenes/scenePlay.ragnar");
-	app->fs->RemoveFile("Assets/Scenes/scenePlay.ragnar");
-	qTree.Clear();
-	qTree.Create(AABB(float3(-200, -50, -200), float3(200, 50, 200)));
 	gameState = GameState::NOT_PLAYING;
 }
 
