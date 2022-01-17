@@ -1,18 +1,25 @@
 #pragma once
 #include "Particles.h"
 
+enum class ParticleEmitterType : int
+{
+	NONE = -1,
+	SPEED,
+	GRAVITY,
+};
+
 class ParticleEmitter
 {
 public:
-	ParticleEmitter();
+	ParticleEmitter(ParticleEmitterType type);
 	~ParticleEmitter();
 
-	void Init(Particles& particle);
-	void Update(Particles& particle, float dt);
+	virtual void Init(Particles& particle);
+	virtual void Update(Particles& particle, float dt);
 
 
 public:
-	float3 minVelocity, maxVelocity;
-	LCG random;
+
+	ParticleEmitterType type;
 	bool del;
 };

@@ -9,6 +9,8 @@
 #include "Resource.h"
 #include "ResourceManager.h"
 #include "EmitterInstance.h"
+#include "Speed.h"
+#include "Gravity.h"
 
 #include <stack>
 
@@ -20,6 +22,7 @@ ModuleScene::ModuleScene() : sceneDir(""), mainCamera(nullptr), gameState(GameSt
 {
 	smoke1 = nullptr;
 	smoke2 = nullptr;
+	smoke3 = nullptr;
 	root = new GameObject();
 	root->SetName("Untitled");
 }
@@ -45,8 +48,8 @@ bool ModuleScene::Start()
 	street = CreateGameObject(root, true);
 	ResourceManager::GetInstance()->LoadResource(std::string("Assets/Resources/Street.fbx"), *street);
 
-	smoke1 = CreateSmoke(float3{ 21.9f,10.17f,42.54f });
-	smoke2 = CreateSmoke(float3{ -31.09f,7.99f,-26.33f });
+	smoke2 = CreateSmoke(float3{ 22.0f,10.0f,45.0f });
+	smoke3 = CreateSmoke(float3{ 40.0f,10.0f,45.0f });
 	
 	return true;
 }
@@ -54,6 +57,8 @@ bool ModuleScene::Start()
 bool ModuleScene::PreUpdate(float dt)
 {
 	if (gameState == GameState::PLAYING) gameTimer.Start();
+
+	
 
 	return true;
 }
@@ -112,6 +117,12 @@ bool ModuleScene::Update(float dt)
 				objects.push(go->GetChilds()[i]);
 		}
 		resetQuadtree = false;
+	}
+
+	//firework
+	if (app->input->GetKey(SDL_SCANCODE_1) == KeyState::KEY_DOWN)
+	{
+		smoke2 = CreateSmoke(float3{ 0.0f,0.0f,0.0f });
 	}
 
 	return true;
@@ -457,6 +468,12 @@ GameObject* ModuleScene::CreateSmoke(float3 position)
 	emitter->minLifeTime = 0.5f;
 	emitter->maxLifeTime = 1.5f;
 	particleSystem->SetEmitter(emitter);
+
+	emitter->CreateParticleEffect(ParticleEmitterType::SPEED);
+	Speed* velocityEffect = (Speed*)emitter->GetParticleEffect(ParticleEmitterType::SPEED);
+	velocityEffect->minVelocity = { -0.03f,0.05f,-0.03f };
+	velocityEffect->maxVelocity = { 0.03f,0.1f,0.03f };
+
 
 	go->CreateComponent(ComponentType::MATERIAL);
 	MaterialComponent* smokeMaterial1 = (MaterialComponent*)go->GetComponent(ComponentType::MATERIAL);

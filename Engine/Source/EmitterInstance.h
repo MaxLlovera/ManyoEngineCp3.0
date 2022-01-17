@@ -9,6 +9,7 @@
 #include "MathGeoLib/src/Geometry/Frustum.h"
 #include "MathGeoLib/src/Algorithm/Random/LCG.h"
 #include <string>
+#include "ParticleEmitter.h"
 
 class EmitterInstance {
 public:
@@ -24,6 +25,9 @@ public:
 	void OnEditor(int emitterIndex);
 	void ParticSecond(float particSec);
 
+	void CreateParticleEffect(ParticleEmitterType type);
+	ParticleEmitter* GetParticleEffect(ParticleEmitterType type);
+	bool isEffectActive(ParticleEmitterType type);
 
 public:
 

@@ -2,12 +2,15 @@
 #include "ResourceManager.h"
 #include "Mesh.h"
 #include "TextureImporter.h"
+#include "Speed.h"
+#include "Gravity.h"
 
 EmitterInstance::EmitterInstance(GameObject* owner)
 {
 	own = owner;
 	particleReference = new Particles(own);
 	particlesBuff.resize(0);
+	effects.resize(3);
 	maxParticles = 200;
 	particSecond = 50;
 	isActive = true;
@@ -61,6 +64,29 @@ void EmitterInstance::Emit(float dt)
 	}
 }
 
+void EmitterInstance::CreateParticleEffect(ParticleEmitterType type)
+{
+	ParticleEmitter* emitter = nullptr;
+
+	switch (type)
+	{
+	case ParticleEmitterType::NONE:
+		effects[(int)ParticleEmitterType::NONE] = emitter;
+		break;
+
+	case ParticleEmitterType::SPEED:
+		emitter = (ParticleEmitter*)new Speed();
+		effects[(int)ParticleEmitterType::SPEED] = emitter;
+		break;
+	case ParticleEmitterType::GRAVITY:
+		emitter = (ParticleEmitter*)new Gravity();
+		effects[(int)ParticleEmitterType::GRAVITY] = emitter;
+		break;
+	default:
+		break;
+	}
+}
+
 void EmitterInstance::Render()
 {
 	for (int i = 0; i < particlesBuff.size(); i++) {
@@ -88,6 +114,13 @@ void EmitterInstance::UpdateParticle(float dt)
 		
 		if (particlesBuff[i]->isActive == true)
 		{
+			for (int j = 0; j < effects.size(); j++)
+			{
+				if (effects[j] != nullptr && isEffectActive(effects[j]->type))
+				{
+					effects[j]->Update(*particlesBuff[i], dt);
+				}
+			}
 
 			particlesBuff[i]->lifeTime -= dt;
 			particlesBuff[i]->speed += particlesBuff[i]->accel * dt;// * dt;
@@ -97,6 +130,8 @@ void EmitterInstance::UpdateParticle(float dt)
 		if (particlesBuff[i]->lifeTime <= 0)
 			particlesBuff[i]->isActive = false;
 	}
+
+
 }
 
 void EmitterInstance::Update(float dt)
@@ -116,3 +151,27 @@ void EmitterInstance::ParticSecond(float particSec)
 	particSecond = particSec;
 	timer = 1.0f / particSecond;
 }
+
+bool EmitterInstance::isEffectActive(ParticleEmitterType type)
+{
+	for (int i = 0; i < effects.size(); ++i)
+	{
+		if (effects[i] != nullptr && effects[i]->type == type)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+ParticleEmitter* EmitterInstance::GetParticleEffect(ParticleEmitterType type)
+{
+	for (int i = 0; i < effects.size(); i++)
+	{
+		if (effects[i] != nullptr && effects[i]->type == type)
+		{
+			return effects[i];
+		}
+	}
+}
+
