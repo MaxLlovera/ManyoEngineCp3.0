@@ -51,6 +51,7 @@
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#features">Features</a></li>
+          <li><a class="nav-link scrollto" href="#particles">Particles</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li><a class="nav-link scrollto" href="#license">License</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
@@ -91,9 +92,40 @@
             </p>
             <div class="row">
 
-              <center> <i class="bx bx-cube-alt"></i></center>
-              <h4>Important Features</h4>
-              <p>- Continuous loop smoke comes out of at least 2 houses in the town scene</p>
+
+              <h4>How to use the Engine:</h4>
+              <p> Right click + WASD: Move the camera in it's own axis.<br>
+
+                Right click + Q/E: Move the camera up or down in it's own axis.<br>
+
+                Mouse scroll wheel: Move the camera forward and backwards in it's own axis.<br>
+
+                Alt + left click: Orbit the camera around the GameObject.<br>
+
+                F: Focus the GameObject.<br>
+
+                Key T: Reset the camera (World axis reset).<br>
+
+                Right click GameObject in the hierarchy: Open GameObject options.<br>
+
+                Supr while a GameObject is selected: Delete the GameObject.<br>
+
+                Supr while a resource is selected: Delete the resource.<br>
+
+                Hold left click in the hierarchy menu: Move GameObjects in the hierarchy (Reparenting).<br>
+
+                W,E,R buttons: show Move, Scale, Rotate guizmos.<br>
+
+                Ctrl + N: Generate a new scene (You will be warned to save your current project).<br>
+
+                Ctrl + O: Opens the explorer window to search for a file and open it.<br>
+
+                Ctrl + S: Saves the current Scene.<br>
+
+                Ctrl + Shift + S: Opens the explorer window to save the scene in a desired location.<br>
+
+                Ctrl + D: Duplicates the selected game object. </p>
+
             </div>
           </div>
         </div>
@@ -109,7 +141,7 @@
           <center>
             <h2>Engine Features!</h2>
           </center>
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+          <div class="col align-items-center">
             <section>
 
 
@@ -119,7 +151,7 @@
                       data-height="140" data-rotate="90deg"></span></p>
                 </center>
                 <center>
-                  <h3>Guizmo</h3>
+                  <h3>GUIZMO</h3>
                 </center>
               </header>
 
@@ -127,181 +159,344 @@
                 <p>The Transformation gizmo allows mouse controlled translation, rotation and scaling in the 3D
                   Viewport.</p>
               </center>
+
+
             </section>
-            </div>
+
           </div>
-        </div>
-
-
-
-           
-
-    <!-- ======= Team Section ======= -->
-    <section id="team" class="team section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Team</h2>
-
-        </div>
-
-        <div class="row">
-
           <div class="col align-items-center">
-            <div class="member">
-              <div class="member-img">
-                <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
+            <section>
 
-                <div class="social">
-                  <a href="https://github.com/maxllovera"><i class="bi bi-github"></i></a>
 
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Max Llovera Martí</h4>
-                <span>Gameobject Components</span>
-                <span>Frustum Culling</span>
-                <span>Particle System</span>
-              </div>
-            </div>
+              <header>
+                <center>
+                  <p><span class="iconify" data-icon="clarity:video-camera-solid" style="color: #0f95a0;"
+                      data-width="140" data-height="140"></span></p>
+                </center>
+                <center>
+                  <h3>CAMERA</h3>
+                </center>
+              </header>
+
+              <center>
+                <p>The camera has an entire system with frustum culling and many others features.</p>
+              </center>
+            </section>
           </div>
-
           <div class="col align-items-center">
-            <div class="member">
-              <div class="member-img">
-                <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+            <section>
 
-                <div class="social">
-                  <a href="https://github.com/arnauustrell"><i class="bi bi-github"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Arnau Ustrell Vacas</h4>
-                <span>Loading Texture</span>
-                <span>Custom File Format</span>
-                <span>Particle System</span>
-              </div>
-            </div>
+
+              <header>
+                <center>
+                  <p><span class="iconify" data-icon="bx:bxs-component" style="color: #0f95a0;" data-width="140"
+                      data-height="140"></span></p>
+                </center>
+                <center>
+                  <h3>COMPONENTS</h3>
+                </center>
+              </header>
+
+              <center>
+                <p>Each gameObject can have multiple components displayed at the inspector (transformation, mesh,
+                  material, particle emitter and camera).</p>
+              </center>
+            </section>
           </div>
 
           <div class="col align-items-center">
-            <div class="member">
-              <div class="member-img">
-                <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href="https://github.com/meeeri08"><i class="bi bi-github"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Maria Garrigolas Ledo</h4>
-                <span>Loading Geometry</span>
-                <span>Serialization</span>
-                <span>Particle System</span>
-              </div>
-            </div>
+            <section>
+              <header>
+                <center>
+                  <p><span class="iconify" data-icon="system-uicons:hierarchy" style="color: #0f95a0;" data-width="140"
+                      data-height="140"></span></p>
+                </center>
+                <center>
+                  <h3>HIERARCHY</h3>
+                </center>
+              </header>
+
+              <center>
+                <p>It has a hierarchy of gameObjects. Able to add, remove and change parent and order of gameObjects
+                  into the hierarchy panel.</p>
+              </center>
           </div>
 
-
-
-
-        </div>
-      </div>
-    </section><!-- End Team Section -->
-
-
-    <!-- ======= License Section ======= -->
-    <section id="license" class="license">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>License</h2>
-
-
-        </div>
-        <p><b>Copyright (c) 2021 Max Llovera, Maria Garrigolas & Arnau Ustrell</p></b>
-
-        <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
-          documentation files (the "Software"), to deal in the Software without restriction, including without
-          limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
-          Software, and to permit persons to whom the Software is furnished to do so, subject to the following
-          conditions:</p>
-
-        <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions
-          of the Software.</p>
-
-        <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
-          TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
-          THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
-          CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-          DEALINGS IN THE SOFTWARE.</p>
-      </div>
-
-    </section><!-- End Contact Section -->
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Contact Us</h2>
-
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-5">
-
+          <section>
             <div class="row">
-              <div class="col-md-12">
-                <div class="info-box">
-                  <i class="bx bx-map"></i>
-                  <h3>Our Address</h3>
-                  <p> Carrer de la Igualtat, 33, 08222 Terrassa, Barcelona</p>
-                </div>
-              </div>
-              <div class="col-md-12">
-                <div class="info-box mt-4">
-                  <i class="bx bx-envelope"></i>
-                  <h3>Email Us</h3>
-                  <p>max.llovera@estudiantat.upc.edu</p>
-                  <p>arnau.ustell@estudiantat.upc.edu</p>
-                  <p>maria.garrigolas@estudiantat.upc.edu</p>
-                </div>
+              <div class="col align-items-center">
+
+                <center>
+                  <h2>First release</h2>
+                  <header>
+
+                    <p>Camera movement (Rotate, Move, Orbit, Focus).<br>
+                      Drag and drop textures and models.<br>
+                      Load and save the configuration.<br>
+                      GameObject and components system (Transform component, Mesh Renderer and Material Component).<br>
+                      GameObject options (Rename, activate, move in the hierarchy, delete).<br>
+                      Inspector information (Transform, mesh renderer, material).<br>
+                      Own basic shapes (Pyramid, Sphere, Cube and Cylinder).<br>
+                      Saving images to DDS for lower size.<br>
+                      Beautiful and usable UX (provided by ImGui).<br>
+                      Debug options for GameObjects (Normals, Normal length, Normal color, etc...).<br>
+                      System information (Console, Hardware, Software, etc...).<br>
+                      Opengl options (Wireframe Mode, Texture2D, Vsync, Stencil, etc...).<br>
+                      Ability to close and reopen menus from the editor.</p>
+
+                </center>
+                </header>
               </div>
 
+                <div class="col align-items-center">
+
+                  <center>
+                    <h2>Second release</h2>
+                    <header>
+
+                      <p>Stencil border for the selected GameObject.<br>
+                        Raycasting objects to select them (MousePicking).<br>
+                        MousePicking detects the closest target that is hit.<br>
+                        Resource manager that manages all kinds of resources, with a cool design.<br>
+                        All files are shown in the resource manager.<br>
+                        You can import any asset you need in it.<br>
+                        For better user experience, the resource has icons for models, folders, textures...<br>
+                        Play/Stop/Pause and Advance next frame for game mode.<br>
+                        Own file formats, hidden in the Engine's background.<br>
+                        They are saved as .rgtexture, .rgmesh and .rgmodel.<br>
+                        The scenes are saved as .ragnar.<br>
+                        The user will see the file formats as the ones he/she imported (png, jpg...).<br>
+                        Selected GameObjects have Guizmos for better user experience.<br>
+                        Imported texture and model options and filters (Alienify, flip UVs, Gaussian Blur...)<br>
+                        Game clock and Engine clock.<br>
+                        Quadtree implementation for better optimization.<br>
+                        Camera system (Camera component, FOV, planes, etc...).<br>
+                        Mini viewer to see what the game camera is looking at in the editor view.<br>
+                        Must have the camera selected, and it will be show in the bottom right corner of the editor viewport.<br>
+                        Different viewports (Editor View and Game View).<br>
+                        Correct serialization and load methods for the engine.<br>
+                        Frustum Culling for the cameras.<br>
+                        AABB system for all the GameObjects.<br>
+                        Shortcuts and explorer viewer for save, load and open files for better user experience.</p>
+
+                  </center>
+                  </header>
+                </div>
+                  <div class="col align-items-center">
+
+                    <center>
+                      <h2>Third release</h2>
+                      <header>
+  
+                        <p>Particle System<br>
+                          Smoke coming out of two chimneys<br>
+                          Save particle template<br>
+                          Load particle template<br>
+                          Working on Firework particle<br>  
+                          Fixing bugs<br>
+                        </p>
+                    </center>
+                    </header>
+                  </div>
+                
             </div>
-
-          </div>
-
-          <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-          </div>
+          </section>
 
         </div>
 
-      </div>
-    </section><!-- End Contact Section -->
+        <!-- Particles -->
+        <section id="particles" class="particles">
+          <div class="container">
+            <div class="row">
+              <center>
+                <h2>Particle System!</h2>
+              </center>
+              <div class="col align-items-left">
+                <center><p>video</p></center>
+
+              </div>
+
+
+
+
+
+              <!-- ======= Team Section ======= -->
+              <section id="team" class="team section-bg">
+                <div class="container">
+
+                  <div class="section-title">
+                    <h2>Team</h2>
+
+                  </div>
+
+                  <div class="row">
+
+                    <div class="col align-items-center">
+                      <div class="member">
+                        <div class="member-img">
+                          <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
+
+                          <div class="social">
+                            <a href="https://github.com/maxllovera"><i class="bi bi-github"></i></a>
+
+                          </div>
+                        </div>
+                        <div class="member-info">
+                          <h4>Max Llovera Martí</h4>
+                          <span>Gameobject Components</span>
+                          <span>Frustum Culling</span>
+                          <span>Particle System</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col align-items-center">
+                      <div class="member">
+                        <div class="member-img">
+                          <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+
+                          <div class="social">
+                            <a href="https://github.com/arnauustrell"><i class="bi bi-github"></i></a>
+                          </div>
+                        </div>
+                        <div class="member-info">
+                          <h4>Arnau Ustrell Vacas</h4>
+                          <span>Loading Texture</span>
+                          <span>Custom File Format</span>
+                          <span>Particle System</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col align-items-center">
+                      <div class="member">
+                        <div class="member-img">
+                          <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
+                          <div class="social">
+                            <a href="https://github.com/meeeri08"><i class="bi bi-github"></i></a>
+                          </div>
+                        </div>
+                        <div class="member-info">
+                          <h4>Maria Garrigolas Ledo</h4>
+                          <span>Loading Geometry</span>
+                          <span>Serialization</span>
+                          <span>Particle System</span>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+
+                  </div>
+                </div>
+              </section><!-- End Team Section -->
+
+
+              <!-- ======= License Section ======= -->
+              <section id="license" class="license">
+                <div class="container">
+
+                  <div class="section-title">
+                    <h2>License</h2>
+
+
+                  </div>
+                  <p><b>Copyright (c) 2021 Max Llovera, Maria Garrigolas & Arnau Ustrell</p></b>
+
+                  <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+                    associated
+                    documentation files (the "Software"), to deal in the Software without restriction, including without
+                    limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                    copies of the
+                    Software, and to permit persons to whom the Software is furnished to do so, subject to the following
+                    conditions:</p>
+
+                  <p>The above copyright notice and this permission notice shall be included in all copies or
+                    substantial portions
+                    of the Software.</p>
+
+                  <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
+                    NOT LIMITED
+                    TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
+                    EVENT SHALL
+                    THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+                    ACTION OF
+                    CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+                    OTHER
+                    DEALINGS IN THE SOFTWARE.</p>
+                </div>
+
+              </section><!-- End Contact Section -->
+
+              <!-- ======= Contact Section ======= -->
+              <section id="contact" class="contact">
+                <div class="container">
+
+                  <div class="section-title">
+                    <h2>Contact Us</h2>
+
+                  </div>
+
+                  <div class="row">
+
+                    <div class="col-lg-5">
+
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="info-box">
+                            <i class="bx bx-map"></i>
+                            <h3>Our Address</h3>
+                            <p> Carrer de la Igualtat, 33, 08222 Terrassa, Barcelona</p>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="info-box mt-4">
+                            <i class="bx bx-envelope"></i>
+                            <h3>Email Us</h3>
+                            <p>max.llovera@estudiantat.upc.edu</p>
+                            <p>arnau.ustell@estudiantat.upc.edu</p>
+                            <p>maria.garrigolas@estudiantat.upc.edu</p>
+                          </div>
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                    <div class="col-lg-6">
+                      <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                        <div class="row">
+                          <div class="col-md-6 form-group">
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
+                              required>
+                          </div>
+                          <div class="col-md-6 form-group mt-3 mt-md-0">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
+                              required>
+                          </div>
+                        </div>
+                        <div class="form-group mt-3">
+                          <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
+                            required>
+                        </div>
+                        <div class="form-group mt-3">
+                          <textarea class="form-control" name="message" rows="5" placeholder="Message"
+                            required></textarea>
+                        </div>
+                        <div class="my-3">
+                          <div class="loading">Loading</div>
+                          <div class="error-message"></div>
+                          <div class="sent-message">Your message has been sent. Thank you!</div>
+                        </div>
+                        <div class="text-center"><button type="submit">Send Message</button></div>
+                      </form>
+                    </div>
+
+                  </div>
+
+                </div>
+              </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
 
